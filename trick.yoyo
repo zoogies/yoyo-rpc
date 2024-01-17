@@ -1,0 +1,6 @@
+{
+    "name":"yoyo-rpc",
+    "description":"Provides a simple RPC wrapper around the discord games SDK to yoyoengine.",
+    "author":"Ryan Zmuda",
+    "version":"1.0"
+}
