@@ -43,7 +43,7 @@ void YYRPC_on_update()
     if (app.core != NULL) {
         enum EDiscordResult result = app.core->run_callbacks(app.core);
         if (result != DiscordResult_Ok) {
-            printf("Error running Discord callbacks: %d\n", result);
+            ye_logf(error,"Error running Discord callbacks: %d\n", result);
         }
     }
 }
