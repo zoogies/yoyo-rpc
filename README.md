@@ -37,8 +37,3 @@ Assuming you have already setup your client through the [discord developer porta
 - `large_text` - A **STRING** describing the large image.
 
 For the lua API, these keys are taken from your arguments in chronological order, and you must supply all of them.
-
-## todo
-
-- [ ] test that it works
-- [ ] cmake build it with the dependant library based on platform and place that in the project build output
