@@ -67,6 +67,9 @@ bool YYRPC_initialize(DiscordClientId client_id){
     }
 
     app.activities = app.core->get_activity_manager(app.core);
+
+    ye_logf(info, "Discord RPC initialized through yoyo-rpc\n");
+
     return true;
 }
 
@@ -89,6 +92,9 @@ bool YYRPC_set_activity(char* details, char* state, char* large_image, char* lar
     sprintf(activity.assets.large_text, "%s", large_text);
 
     app.activities->update_activity(app.activities, &activity, &app, update_activity_callback);
+
+    ye_logf(info, "Set activity: %s, %s, %s, %s\n", activity.details, activity.state, activity.assets.large_image, activity.assets.large_text);
+
     return true;
 }
 
