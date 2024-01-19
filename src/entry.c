@@ -26,7 +26,7 @@ void yoyo_trick_init(){
         .name = "yoyo-rpc",
         .author = "Ryan Zmuda",
         .description = "Provides a simple RPC wrapper around the discord games SDK to yoyoengine.",
-        .version = "1.0.0",
+        .version = "1.1",
         .on_unload = YYRPC_on_unload,
         .on_update = YYRPC_on_update,
         .lua_bind = YYRPC_lua_bind
