@@ -63,6 +63,7 @@ bool YYRPC_initialize(DiscordClientId client_id){
 
     if (DiscordCreate(DISCORD_VERSION, &params, &app.core) != DiscordResult_Ok) {
         app.core = NULL;
+        ye_logf(error, "Failed to initialize Discord RPC\n");
         return false;
     }
 
@@ -75,14 +76,20 @@ bool YYRPC_initialize(DiscordClientId client_id){
 
 bool YYRPC_set_activity_complex(struct DiscordActivity activity)
 {
-    if(app.core == NULL) return false;
+    if(app.core == NULL){
+        ye_logf(error, "ERROR: Could not set activity because Discord RPC not initialized\n");
+        return false;
+    }
     app.activities->update_activity(app.activities, &activity, &app, update_activity_callback);
     return true;
 }
 
 bool YYRPC_set_activity(char* details, char* state, char* large_image, char* large_text)
 {
-    if(app.core == NULL) return false;
+    if(app.core == NULL){
+        ye_logf(error, "ERROR: Could not set activity because Discord RPC not initialized\n");
+        return false;
+    }
     struct DiscordActivity activity;
     memset(&activity, 0, sizeof(activity));
 

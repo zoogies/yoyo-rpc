@@ -30,12 +30,14 @@ include_directories(
 
 add_library(yoyo-rpc SHARED ${SOURCES})
 
+target_link_libraries(yoyo-rpc yoyoengine)
+
 if (UNIX)
     target_link_libraries(yoyo-rpc ${CMAKE_CURRENT_SOURCE_DIR}/lib/linux/libdiscord_game_sdk.so)
     file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/lib/linux/libdiscord_game_sdk.so DESTINATION ${YOYO_TRICK_BUILD_DIR})
 elseif (WIN32)
     target_link_libraries(yoyo-rpc ${CMAKE_CURRENT_SOURCE_DIR}/lib/windows/discord_game_sdk.dll)
-    file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/lib/windows/libdiscord_game_sdk.dll DESTINATION ${YOYO_TRICK_BUILD_DIR})
+    file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/lib/windows/discord_game_sdk.dll DESTINATION ${YOYO_TRICK_BUILD_DIR})
 else()
     message(FATAL_ERROR "Unsupported platform when building yoyo-rpc")
 endif()

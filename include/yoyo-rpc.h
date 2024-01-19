@@ -16,6 +16,8 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+#include <yoyoengine/export.h>
+
 #include "discord_game_sdk.h"
 
 #include <stdint.h>
@@ -52,7 +54,7 @@ void YYRPC_on_update();
  * @return true Success
  * @return false Failure
  */
-bool YYRPC_initialize(DiscordClientId client_id);
+YOYO_EXPORT bool YYRPC_initialize(DiscordClientId client_id);
 
 /**
  * @brief Take in a full struct DiscordActivity and set it as the current activity
@@ -63,7 +65,7 @@ bool YYRPC_initialize(DiscordClientId client_id);
  * 
  * For this function, you need to have fully constructed a struct DiscordActivity. Make sure to memset it to 0 first.
  */
-bool YYRPC_set_activity_complex(struct DiscordActivity activity);
+YOYO_EXPORT bool YYRPC_set_activity_complex(struct DiscordActivity activity);
 
 /**
  * @brief Set the activity with a few parameters
@@ -73,7 +75,7 @@ bool YYRPC_set_activity_complex(struct DiscordActivity activity);
  * @param large_image The large image key
  * @param large_text The large image text
 */
-bool YYRPC_set_activity(char* details, char* state, char* large_image, char* large_text);
+YOYO_EXPORT bool YYRPC_set_activity(char* details, char* state, char* large_image, char* large_text);
 
 /* Lua */
 
